@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tunggakan PBB 2020 - 2025 — Desa Kasomalang Kulon</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --h:#0f3a25;--h2:#1a5c3a;--hm:#e8f4ee;
+  --g:#c49a28;--gm:#fdf8e8;
+  --r:#dc2626;--b:#1d4ed8;
+  --tx:#1a1a1a;--ab:#6b7280;--br:#e5e7eb;
+  --bg:#f0f4f1;
+  --s1:0 1px 3px rgba(0,0,0,.08);
+  --s2:0 4px 16px rgba(0,0,0,.12);
+  --s3:0 20px 60px rgba(0,0,0,.25);
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
+
+/* ===== HEADER ===== */
+header{background:var(--h);color:#fff;border-bottom:4px solid var(--g)}
+.hd{max-width:1180px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;gap:14px}
+.hd-logo{width:52px;height:52px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.hd-text h1{font-size:1.05rem;font-weight:700}
+.hd-text p{font-size:.75rem;color:#a7c4b5;margin-top:1px}
+.hd-badge{margin-left:auto;background:var(--g);color:var(--h);padding:4px 14px;border-radius:20px;font-size:.73rem;font-weight:800;white-space:nowrap}
+
+/* ===== HERO ===== */
+.hero{
+  background:linear-gradient(135deg,#0a2418 0%,#1a5c3a 45%,#0f3a25 100%);
+  color:#fff;padding:40px 24px 0;position:relative;overflow:hidden
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M0 0h40v40H0zm40 40h40v40H40z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner{max-width:1180px;margin:0 auto;position:relative}
+.hero-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--g);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.hero-eyebrow::after{content:'';flex:1;height:1px;background:rgba(196,154,40,.25);max-width:120px}
+.hero-title{font-size:clamp(1.2rem,2.5vw,1.75rem);font-weight:800;line-height:1.25;margin-bottom:36px;opacity:.95}
+
+/* Big metric cards */
+.hero-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.08);border-radius:16px 16px 0 0;overflow:hidden}
+.hm-card{padding:22px 28px;background:rgba(255,255,255,.04);transition:background .2s;cursor:default}
+.hm-card:hover{background:rgba(255,255,255,.09)}
+.hm-label{font-size:.68rem;text-transform:uppercase;letter-spacing:1.2px;color:rgba(255,255,255,.5);margin-bottom:6px}
+.hm-val{font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:900;line-height:1;letter-spacing:-1px;color:#fff;font-variant-numeric:tabular-nums}
+.hm-val.gold{color:var(--g)}
+.hm-sub{font-size:.68rem;color:rgba(255,255,255,.35);margin-top:5px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.hm-val{animation:fadeUp .4s ease both}
+
+/* ===== DUSUN TABS ===== */
+.dusun-strip{background:var(--h2);border-bottom:1px solid rgba(255,255,255,.1)}
+.dusun-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+.dcard{
+  padding:14px 20px;cursor:pointer;transition:background .15s;
+  border-right:1px solid rgba(255,255,255,.1);position:relative
+}
+.dcard:last-child{border-right:none}
+.dcard:hover{background:rgba(255,255,255,.07)}
+.dcard.on{background:rgba(255,255,255,.14)}
+.dcard.on::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--g)}
+.dcard-name{font-size:.78rem;font-weight:700;color:#fff}
+.dcard-rw{font-size:.65rem;color:rgba(255,255,255,.45);margin-top:1px}
+.dcard-n{font-size:1.1rem;font-weight:800;color:var(--g);margin-top:6px;line-height:1}
+.dcard-rp{font-size:.65rem;color:rgba(255,255,255,.45);margin-top:3px}
+
+/* ===== MAIN ===== */
+main{max-width:1180px;margin:0 auto;padding:24px}
+
+/* ===== ANALYTICS SECTION ===== */
+.analytics{margin-bottom:24px}
+.analytics-title{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--h);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.analytics-title::after{content:'';flex:1;height:1px;background:var(--br)}
+
+/* RW cards grid */
+.rw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:20px}
+.rw-card{
+  background:#fff;border-radius:12px;padding:16px 18px;
+  box-shadow:var(--s1);border-top:3px solid var(--h2);
+  cursor:pointer;transition:all .2s;position:relative;overflow:hidden
+}
+.rw-card::before{
+  content:'';position:absolute;right:-20px;bottom:-20px;
+  width:80px;height:80px;border-radius:50%;
+  background:var(--hm);opacity:.5
+}
+.rw-card:hover{box-shadow:var(--s2);transform:translateY(-2px)}
+.rw-card.luar{border-top-color:#9ca3af}
+.rw-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.rw-card-label{font-size:.8rem;font-weight:800;color:var(--h)}
+.rw-card-label.luar{color:#6b7280}
+.rw-card-wp{font-size:.7rem;background:var(--hm);color:var(--h2);padding:2px 8px;border-radius:10px;font-weight:700}
+.rw-card-rp{font-size:1.1rem;font-weight:800;color:var(--h2);margin-bottom:8px;position:relative}
+.rw-card-bar-bg{height:5px;background:#f0f0f0;border-radius:10px;overflow:hidden}
+.rw-card-bar{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--h2),var(--g));transition:width .6s cubic-bezier(.4,0,.2,1)}
+
+/* RT breakdown inside RW (expand) */
+.rt-accordion{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--br)}
+.rt-accordion.open{display:block}
+.rt-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.rt-label{font-size:.72rem;font-weight:700;color:var(--ab);width:52px;flex-shrink:0}
+.rt-bar-wrap{flex:1;height:6px;background:#f0f0f0;border-radius:10px;overflow:hidden}
+.rt-bar{height:100%;border-radius:10px;background:var(--g);transition:width .5s ease}
+.rt-rp{font-size:.7rem;color:var(--h);font-weight:700;white-space:nowrap;width:80px;text-align:right}
+.rt-wp{font-size:.65rem;color:var(--ab);white-space:nowrap}
+
+/* ===== FILTER ===== */
+.panel-cari{background:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;box-shadow:var(--s1)}
+.panel-cari h2{font-size:.75rem;font-weight:700;color:var(--h);text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap}
+.filter-row input,.filter-row select{
+  flex:1;min-width:130px;padding:8px 12px;
+  border:1.5px solid var(--br);border-radius:8px;
+  font-size:.86rem;font-family:inherit;outline:none;background:#fff
+}
+.filter-row input:focus,.filter-row select:focus{border-color:var(--h2)}
+.filter-active{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:10px;font-size:.75rem;color:var(--ab)}
+.ftag{display:inline-flex;align-items:center;gap:5px;background:var(--h2);color:#fff;padding:3px 10px;border-radius:12px;font-size:.73rem;font-weight:600;cursor:pointer}
+.ftag:hover{background:var(--h)}
+
+/* ===== TABLE ===== */
+.panel-tabel{background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--s1);margin-bottom:24px}
+.th-bar{background:var(--h2);color:#fff;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.th-bar-left{font-size:.83rem;font-weight:700}
+.th-actions{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.sel-badge{background:rgba(255,255,255,.2);padding:3px 12px;border-radius:12px;font-size:.75rem}
+.btn-batch{border:none;padding:6px 14px;border-radius:7px;font-size:.77rem;font-weight:700;cursor:pointer;transition:all .15s;font-family:inherit}
+.btn-batch.pb{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn-batch.und{background:var(--g);color:var(--h)}
+.btn-batch:hover{opacity:.85}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead th{background:#f5f7f5;padding:9px 13px;text-align:left;font-weight:700;color:var(--h);font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--br);white-space:nowrap}
+thead th:first-child{width:38px;text-align:center}
+tbody tr{border-bottom:1px solid #f5f5f5;transition:background .1s;cursor:pointer}
+tbody tr:hover{background:var(--hm)}
+tbody tr.on{background:#dff0e8}
+td{padding:9px 13px;vertical-align:middle}
+td:first-child{text-align:center}
+td.nm{font-weight:600}
+td.nop{font-family:monospace;font-size:.74rem;color:var(--ab)}
+td.tot{font-weight:700;color:var(--r)}
+.bdg{display:inline-block;padding:2px 7px;border-radius:9px;font-size:.68rem;font-weight:700}
+.bdg-rt{background:var(--hm);color:var(--h2)}
+.bdg-ds{background:#fff3cd;color:#854d0e}
+.bdg-luar{background:#f3f4f6;color:#6b7280}
+.yrtags{display:flex;gap:3px;flex-wrap:wrap}
+.ytag{background:#fff3cd;color:#854d0e;padding:1px 6px;border-radius:7px;font-size:.67rem;font-weight:600}
+.abtns{display:flex;gap:5px;white-space:nowrap}
+.btn-pb,.btn-und{border:none;padding:4px 9px;border-radius:5px;font-size:.7rem;font-weight:600;cursor:pointer;transition:all .15s;font-family:inherit}
+.btn-pb{background:var(--hm);color:var(--h)}
+.btn-pb:hover{background:var(--h2);color:#fff}
+.btn-und{background:var(--gm);color:#7a5f00}
+.btn-und:hover{background:var(--g);color:var(--h)}
+
+/* PAGINATION */
+.pg{display:flex;align-items:center;justify-content:center;gap:5px;padding:13px;border-top:1px solid var(--br);flex-wrap:wrap}
+.pg button{background:#fff;border:1.5px solid var(--br);padding:4px 11px;border-radius:6px;cursor:pointer;font-size:.79rem;transition:all .15s;font-family:inherit}
+.pg button:hover:not(:disabled){border-color:var(--h2);color:var(--h2)}
+.pg button:disabled{opacity:.3;cursor:not-allowed}
+.pg button.on{background:var(--h2);color:#fff;border-color:var(--h2)}
+.pg-info{font-size:.76rem;color:var(--ab)}
+.empty{text-align:center;padding:48px;color:var(--ab);font-size:.9rem}
+
+input[type=checkbox]{width:14px;height:14px;cursor:pointer;accent-color:var(--h2)}
+
+/* ===== OVERLAY / MODAL ===== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;padding:16px;overflow-y:auto}
+.overlay.on{display:flex;align-items:flex-start;justify-content:center}
+.modal{
+  background:#fff;border-radius:16px;width:100%;max-width:1020px;
+  box-shadow:var(--s3);display:flex;flex-direction:column;
+  max-height:calc(100vh - 32px);margin:auto;overflow:hidden
+}
+.mhd{
+  padding:15px 22px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0
+}
+.mhd.pb{background:var(--h)}
+.mhd.und{background:#6b3a00}
+.mhd h3{color:#fff;font-size:.92rem;font-weight:700}
+.mhd button{background:none;border:none;color:rgba(255,255,255,.7);font-size:1.5rem;cursor:pointer;line-height:1}
+.mhd button:hover{color:#fff}
+.m2col{display:grid;grid-template-columns:300px 1fr;flex:1;overflow:hidden;min-height:0}
+.mform{padding:18px;border-right:1px solid var(--br);overflow-y:auto;display:flex;flex-direction:column;gap:13px}
+.mprev{display:flex;flex-direction:column;background:#eef1ee;overflow:hidden}
+.prev-top{padding:8px 14px;background:#e2e6e2;border-bottom:1px solid #ccc;font-size:.68rem;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:.7px;flex-shrink:0}
+.prev-body{flex:1;overflow-y:auto;padding:16px}
+.kertas{
+  background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.13);border-radius:3px;
+  padding:30px 34px;font-family:'Times New Roman',serif;font-size:10.5pt;
+  line-height:1.6;color:#111;min-height:500px
+}
+.kertas .kop{text-align:center;border-bottom:3px double #111;padding-bottom:8px;margin-bottom:13px}
+.kertas .kop-n{font-size:13pt;font-weight:bold;text-transform:uppercase}
+.kertas .kop-s{font-size:10pt}
+.kertas .judul{text-align:center;font-size:12pt;font-weight:bold;text-decoration:underline;text-transform:uppercase;margin:11px 0 3px}
+.kertas .nomor{text-align:center;font-size:10pt;margin-bottom:14px}
+.kertas .tid{border-collapse:collapse;margin-bottom:12px}
+.kertas .tid td{padding:2px 0;font-size:10.5pt;vertical-align:top}
+.kertas .tid td:nth-child(2){padding:0 7px}
+.kertas .par{margin-bottom:9px;font-size:10.5pt;text-align:justify}
+.kertas .nom{text-align:center;font-size:13pt;font-weight:bold;margin:9px 0 4px}
+.kertas .nomk{text-align:center;font-size:9pt;color:#444;margin-bottom:10px}
+.kertas .ttd{display:flex;justify-content:flex-end;margin-top:18px}
+.kertas .ttd-box{text-align:center;min-width:190px}
+.kertas .ttd-jab{font-weight:bold}
+.kertas .ttd-sp{height:56px}
+.kertas .ttd-nm{font-weight:bold;text-decoration:underline}
+
+/* form */
+.fg{display:flex;flex-direction:column;gap:4px}
+.fg label{font-size:.72rem;font-weight:700;color:var(--h);text-transform:uppercase;letter-spacing:.5px}
+.fg input{padding:7px 11px;border:1.5px solid var(--br);border-radius:7px;font-size:.86rem;font-family:inherit;outline:none}
+.fg input:focus{border-color:var(--h2)}
+.iwb{background:var(--hm);border-radius:8px;padding:11px 13px;font-size:.8rem;line-height:1.6;border-left:3px solid var(--h2)}
+.iwb strong{color:var(--h);font-size:.87rem}
+.chips{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px}
+.chip{background:#fff3cd;color:#7a5c00;padding:2px 8px;border-radius:7px;font-size:.72rem;font-weight:600}
+.chip.tot{background:#fee2e2;color:#991b1b}
+.mft{padding:12px 20px;background:#f8f8f8;border-top:1px solid var(--br);display:flex;gap:8px;justify-content:flex-end;flex-shrink:0}
+.btn-cancel{background:#eee;border:none;padding:8px 16px;border-radius:7px;cursor:pointer;font-size:.85rem;font-family:inherit}
+.btn-print{background:var(--h2);color:#fff;border:none;padding:8px 18px;border-radius:7px;cursor:pointer;font-size:.85rem;font-weight:700;font-family:inherit}
+.btn-print:hover{background:var(--h)}
+
+/* PRINT */
+#pa{display:none}
+@media print{
+  body>*{display:none!important}
+  #pa{display:block!important}
+  @page{margin:2cm;size:A4 portrait}
+  .sc{font-family:'Times New Roman',serif;font-size:12pt;line-height:1.65;page-break-after:always}
+  .sc:last-child{page-break-after:avoid}
+  .sc .kop{text-align:center;border-bottom:3px double #000;padding-bottom:10px;margin-bottom:16px}
+  .sc .kop-n{font-size:14pt;font-weight:bold;text-transform:uppercase}
+  .sc .kop-s{font-size:11pt}
+  .sc .judul{text-align:center;font-size:13pt;font-weight:bold;text-decoration:underline;text-transform:uppercase;margin:12px 0 4px}
+  .sc .nomor{text-align:center;font-size:11pt;margin-bottom:18px}
+  .sc .tid{border-collapse:collapse}
+  .sc .tid td{padding:2px 0;font-size:11pt;vertical-align:top}
+  .sc .tid td:nth-child(2){padding:0 8px}
+  .sc .par{margin-bottom:11pt;font-size:11pt;text-align:justify}
+  .sc .nom{text-align:center;font-size:13pt;font-weight:bold;margin:11pt 0 4pt}
+  .sc .nomk{text-align:center;font-size:10pt;color:#333;margin-bottom:13pt}
+  .sc .ttd{display:flex;justify-content:flex-end;margin-top:24pt}
+  .sc .ttd-box{text-align:center;min-width:210px}
+  .sc .ttd-jab{font-weight:bold}
+  .sc .ttd-sp{height:68pt}
+  .sc .ttd-nm{font-weight:bold;text-decoration:underline}
+}
+
+@media(max-width:800px){
+  .hero-metrics,.dusun-inner{grid-template-columns:1fr 1fr}
+  .m2col{grid-template-columns:1fr}
+  .mform{border-right:none;border-bottom:1px solid var(--br);max-height:45vh}
+  .mprev{max-height:50vh}
+  .dcard:nth-child(3n){border-right:none}
+  .dcard:nth-child(3),.dcard:nth-child(4){border-top:1px solid rgba(255,255,255,.1)}
+}
+@media(max-width:520px){
+  .hero-metrics{grid-template-columns:1fr}
+  .dusun-inner{grid-template-columns:1fr 1fr}
+  .rw-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="hd">
+  <div class="hd-logo">🏛️</div>
+  <div class="hd-text">
+    <h1>Tunggakan PBB 2020 - 2025 — Desa Kasomalang Kulon</h1>
+    <p>Kecamatan Kasomalang · Kabupaten Subang</p>
+  </div>
+  <div class="hd-badge">SAUYUNAN 2020 - 2025</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-inner">
+  <div class="hero-eyebrow">📋 Data Tunggakan PBB-P2</div>
+  <div class="hero-title">Wajib Pajak Belum Lunas<br>Desa Kasomalang Kulon</div>
+  <div class="hero-metrics">
+    <div class="hm-card">
+      <div class="hm-label">Wajib Pajak</div>
+      <div class="hm-val" id="h-wp">0</div>
+      <div class="hm-sub" id="h-wp-sub">Belum melunasi PBB</div>
+    </div>
+    <div class="hm-card">
+      <div class="hm-label">Total Tunggakan</div>
+      <div class="hm-val gold" id="h-rp">Rp 0</div>
+      <div class="hm-sub" id="h-rp-sub">Seluruh data desa</div>
+    </div>
+    <div class="hm-card">
+      <div class="hm-label">Data Tersaring</div>
+      <div class="hm-val" id="h-fil">0</div>
+      <div class="hm-sub">Hasil filter aktif</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="dusun-strip">
+<div class="dusun-inner">
+  <div class="dcard on" id="dc-0" onclick="setDusun(0)">
+    <div class="dcard-name">🏘️ Semua Dusun</div>
+    <div class="dcard-rw">RW 1–7 + Luar</div>
+    <div class="dcard-n" id="dn-0">—</div>
+    <div class="dcard-rp" id="dr-0">—</div>
+  </div>
+  <div class="dcard" id="dc-1" onclick="setDusun(1)">
+    <div class="dcard-name">🌿 Dusun I</div>
+    <div class="dcard-rw">RW 01 · RW 02</div>
+    <div class="dcard-n" id="dn-1">—</div>
+    <div class="dcard-rp" id="dr-1">—</div>
+  </div>
+  <div class="dcard" id="dc-2" onclick="setDusun(2)">
+    <div class="dcard-name">🌿 Dusun II</div>
+    <div class="dcard-rw">RW 03 · RW 06</div>
+    <div class="dcard-n" id="dn-2">—</div>
+    <div class="dcard-rp" id="dr-2">—</div>
+  </div>
+  <div class="dcard" id="dc-3" onclick="setDusun(3)">
+    <div class="dcard-name">🌿 Dusun III</div>
+    <div class="dcard-rw">RW 04 · RW 05 · RW 07</div>
+    <div class="dcard-n" id="dn-3">—</div>
+    <div class="dcard-rp" id="dr-3">—</div>
+  </div>
+  <div class="dcard" id="dc-luar" onclick="setDusun('luar')">
+    <div class="dcard-name">🔹 Luar Desa</div>
+    <div class="dcard-rw">Alamat tidak terdata</div>
+    <div class="dcard-n" id="dn-luar">—</div>
+    <div class="dcard-rp" id="dr-luar">—</div>
+  </div>
+</div>
+</div>
+
+<main>
+
+<!-- ANALYTICS -->
+<div class="analytics" id="analytics-section">
+  <div class="analytics-title">📊 Analitik Tunggakan per RW &amp; RT</div>
+  <div class="rw-grid" id="rw-grid"></div>
+</div>
+
+<!-- FILTER -->
+<div class="panel-cari">
+  <h2>🔍 Cari &amp; Filter</h2>
+  <div class="filter-row">
+    <input type="text" id="f-nama" placeholder="Cari nama wajib pajak…" oninput="applyFilter()">
+    <input type="text" id="f-nop"  placeholder="Cari Nomor SPPT / NOP…" oninput="applyFilter()">
+    <select id="f-dusun" onchange="onDusunSel()">
+      <option value="">Semua Dusun</option>
+      <option value="1">Dusun I (RW 01,02)</option>
+      <option value="2">Dusun II (RW 03,06)</option>
+      <option value="3">Dusun III (RW 04,05,07)</option>
+    </select>
+    <select id="f-rw" onchange="onRwSel()">
+      <option value="">Semua RW</option>
+    </select>
+    <select id="f-rt" onchange="applyFilter()">
+      <option value="">Semua RT</option>
+    </select>
+    <select id="f-tahun" onchange="applyFilter()">
+      <option value="">Semua Tahun Tunggakan</option>
+      <option value="2020">Tunggakan 2020</option>
+      <option value="2021">Tunggakan 2021</option>
+      <option value="2022">Tunggakan 2022</option>
+      <option value="2023">Tunggakan 2023</option>
+      <option value="2024">Tunggakan 2024</option>
+      <option value="2025">Tunggakan 2025</option>
+    </select>
+  </div>
+  <div class="filter-active" id="f-active" style="display:none"></div>
+</div>
+
+<!-- TABLE -->
+<div class="panel-tabel">
+  <div class="th-bar">
+    <span class="th-bar-left">Daftar Wajib Pajak Belum Bayar</span>
+    <div class="th-actions">
+      <span class="sel-badge" id="sel-badge">0 terpilih</span>
+      <button class="btn-batch pb" onclick="cetakBatch('pb')">📄 Pemberitahuan</button>
+      <button class="btn-batch und" onclick="cetakBatch('und')">✉️ Undangan</button>
+    </div>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th><input type="checkbox" id="cb-all" onchange="pilihSemua(this)"></th>
+          <th>Nama</th><th>Nomor SPPT</th><th>RT/RW</th><th>Dusun</th>
+          <th>Tunggakan</th><th>Total</th><th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <div id="empty" class="empty" style="display:none">🔎 Tidak ada data yang sesuai</div>
+  <div class="pg" id="pg"></div>
+</div>
+
+</main>
+
+<!-- MODAL PB -->
+<div class="overlay" id="ov-pb">
+<div class="modal">
+  <div class="mhd pb">
+    <h3>📄 Surat Pemberitahuan PBB-P2</h3>
+    <button onclick="closeModal('pb')">×</button>
+  </div>
+  <div class="m2col">
+    <div class="mform">
+      <div class="iwb" id="iw-pb"></div>
+      <div class="fg"><label>Nomor Surat</label><input id="pb-no" value="001" oninput="rerender('pb')"></div>
+      <div class="fg"><label>Alamat Wajib Pajak</label><input id="pb-al" oninput="rerender('pb')"></div>
+    </div>
+    <div class="mprev">
+      <div class="prev-top">👁 Preview Surat</div>
+      <div class="prev-body"><div class="kertas" id="prev-pb"></div></div>
+    </div>
+  </div>
+  <div class="mft">
+    <button class="btn-cancel" onclick="closeModal('pb')">Batal</button>
+    <button class="btn-print" onclick="doprint('pb')">🖨️ Cetak</button>
+  </div>
+</div>
+</div>
+
+<!-- MODAL UND -->
+<div class="overlay" id="ov-und">
+<div class="modal">
+  <div class="mhd und">
+    <h3>✉️ Surat Undangan PBB-P2</h3>
+    <button onclick="closeModal('und')">×</button>
+  </div>
+  <div class="m2col">
+    <div class="mform">
+      <div class="iwb" id="iw-und"></div>
+      <div class="fg"><label>Nomor Surat</label><input id="und-no" value="001" oninput="rerender('und')"></div>
+      <div class="fg"><label>Alamat Wajib Pajak</label><input id="und-al" oninput="rerender('und')"></div>
+      <div class="fg"><label>Hari / Tanggal</label><input id="und-hr" placeholder="Senin, 16 Juni 2025" oninput="rerender('und')"></div>
+      <div class="fg"><label>Waktu</label><input id="und-wk" value="09.00 WIB" oninput="rerender('und')"></div>
+    </div>
+    <div class="mprev">
+      <div class="prev-top">👁 Preview Surat</div>
+      <div class="prev-body"><div class="kertas" id="prev-und"></div></div>
+    </div>
+  </div>
+  <div class="mft">
+    <button class="btn-cancel" onclick="closeModal('und')">Batal</button>
+    <button class="btn-print" onclick="doprint('und')">🖨️ Cetak</button>
+  </div>
+</div>
+</div>
+
+<div id="pa"></div>
+
+<script>
+const PBB_DATA = [{"nama":"NACIM","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0052.0","wp":23000,"tunggakan":{"2025":23000},"total":23000},{"nama":"DACU","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0054.0","wp":23000,"tunggakan":{"2022":13000,"2025":23000},"total":36000},{"nama":"ATEP","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0055.0","wp":23000,"tunggakan":{"2023":23000},"total":23000},{"nama":"IBON","rt":"6","rw":"1","nop":"32.15.031.003.014.0072.0","wp":23000,"tunggakan":{"2022":21000},"total":21000},{"nama":"IBON","rt":"6","rw":"1","nop":"32.15.031.003.014.0076.0","wp":23000,"tunggakan":{"2022":13000},"total":13000},{"nama":"ENAN","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0081.0","wp":23000,"tunggakan":{"2024":23000},"total":23000},{"nama":"SUKARSIH","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0082.0","wp":65000,"tunggakan":{"2020":63000,"2021":63000,"2022":63000},"total":189000},{"nama":"RASIH","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0084.0","wp":23000,"tunggakan":{"2024":23000},"total":23000},{"nama":"SAHROMAN","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0085.0","wp":57000,"tunggakan":{"2020":56000},"total":56000},{"nama":"ENAN","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0086.0","wp":23000,"tunggakan":{"2024":23000},"total":23000},{"nama":"SIDIK H","rt":"6","rw":"1","nop":"32.15.031.003.014.0095.0","wp":58000,"tunggakan":{"2020":57000,"2023":57000},"total":114000},{"nama":"TITI","rt":"6","rw":"1","nop":"32.15.031.003.014.0103.0","wp":23000,"tunggakan":{"2020":28000},"total":28000},{"nama":"MUKRI","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0104.0","wp":33000,"tunggakan":{"2020":34000,"2022":34000,"2024":32000},"total":100000},{"nama":"RASIH","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0108.0","wp":35000,"tunggakan":{"2024":34000},"total":34000},{"nama":"UJU","rt":"1","rw":"1","nop":"32.15.031.003.014.0110.0","wp":23000,"tunggakan":{"2020":20000,"2021":20000},"total":40000},{"nama":"HASAN","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0111.0","wp":23000,"tunggakan":{"2020":17000,"2021":17000,"2024":23000,"2025":23000},"total":80000},{"nama":"SIDIK H","rt":"6","rw":"1","nop":"32.15.031.003.014.0113.0","wp":23000,"tunggakan":{"2020":17000},"total":17000},{"nama":"SALTI","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0116.0","wp":23000,"tunggakan":{"2020":13000,"2021":13000,"2022":13000,"2024":23000,"2025":23000},"total":85000},{"nama":"DIDI H","rt":"4","rw":"1","nop":"32.15.031.003.014.0119.0","wp":23000,"tunggakan":{"2020":13000},"total":13000},{"nama":"HENDI","rt":"4","rw":"1","nop":"32.15.031.003.014.0134.0","wp":23000,"tunggakan":{"2020":13000},"total":13000},{"nama":"MARYATI","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0144.0","wp":23000,"tunggakan":{"2020":13000,"2021":13000,"2022":13000},"total":39000},{"nama":"SENEH","rt":"luar","rw":"luar","nop":"32.15.031.003.014.0159.0","wp":23000,"tunggakan":{"2021":15000,"2024":23000,"2025":23000},"total":61000}];
+
+const DUSUN_RW = {1:['1','2'],2:['3','6'],3:['4','5','7']};
+function getDusun(rw){
+  if(rw==='luar') return 0;
+  for(const[d,rws]of Object.entries(DUSUN_RW)) if(rws.includes(rw)) return +d;
+  return 0;
+}
+function getDLabel(rw){
+  const d=getDusun(rw);
+  return d?'Dusun '+['','I','II','III'][d]:'Luar';
+}
+
+let filtered=[],page=1,PH=25,sel=new Set(),cur=null,batch=[];
+let activeDusun=0,openRw=null;
+
+/* ---- UTILS ---- */
+function rp(n){return'Rp '+n.toLocaleString('id-ID')}
+function alamatAuto(d){
+  if(d.rw==='luar') return 'Desa Kasomalang Kulon';
+  return `Kp. Kasomalang Kulon RT ${d.rt}/RW ${d.rw}, Desa Kasomalang Kulon`;
+}
+function tgl(){return'11 Juni 2026'}
+function nf(s){return String(parseInt(s)||1).padStart(3,'0')}
+
+/* ---- COUNTER ---- */
+function counter(el,to,isRp,dur){
+  const t0=performance.now();
+  (function step(now){
+    const p=Math.min((now-t0)/dur,1),e=1-(1-p)**3,v=Math.round(to*e);
+    el.textContent=isRp?rp(v):v.toLocaleString('id-ID');
+    if(p<1) requestAnimationFrame(step);
+  })(t0);
+}
+
+/* ---- SUBSET ---- */
+function subsetForDusun(d){
+  if(d===0) return PBB_DATA;
+  if(d==='luar') return PBB_DATA.filter(x=>x.rw==='luar');
+  return PBB_DATA.filter(x=>getDusun(x.rw)===d);
+}
+
+/* ---- ANALYTICS RENDER ---- */
+function renderAnalytics(dusun){
+  const subset=subsetForDusun(dusun);
+  // determine which RWs to show
+  let rwList;
+  if(dusun===0) rwList=['1','2','3','4','5','6','7','luar'];
+  else rwList=[...DUSUN_RW[dusun],'luar'].filter(r=>subset.some(d=>d.rw===r));
+
+  // calc max for bar
+  const rwTotals=rwList.map(rw=>{
+    const items=subset.filter(d=>d.rw===rw);
+    return{rw,items,total:items.reduce((s,d)=>s+d.total,0)};
+  }).filter(x=>x.items.length>0);
+  const maxRp=Math.max(...rwTotals.map(x=>x.total),1);
+
+  const grid=document.getElementById('rw-grid');
+  grid.innerHTML=rwTotals.map(({rw,items,total})=>{
+    const pct=Math.round(total/maxRp*100);
+    const isLuar=rw==='luar';
+    const label=isLuar?'🔹 Luar Desa':'RW '+rw;
+
+    // RT breakdown
+    const rtMap={};
+    items.forEach(d=>{
+      const k=d.rt==='luar'?'Luar':d.rt;
+      if(!rtMap[k]){rtMap[k]={wp:0,total:0}}
+      rtMap[k].wp++;rtMap[k].total+=d.total;
+    });
+    const rtMax=Math.max(...Object.values(rtMap).map(x=>x.total),1);
+    const rtRows=Object.entries(rtMap)
+      .sort((a,b)=>{
+        if(a[0]==='Luar') return 1;
+        if(b[0]==='Luar') return -1;
+        return +a[0]-+b[0];
+      })
+      .map(([rt,v])=>`
+        <div class="rt-row">
+          <span class="rt-label">RT ${rt}</span>
+          <div class="rt-bar-wrap"><div class="rt-bar" style="width:${Math.round(v.total/rtMax*100)}%"></div></div>
+          <span class="rt-rp">${rp(v.total)}</span>
+          <span class="rt-wp">${v.wp} WP</span>
+        </div>`).join('');
+
+    return `<div class="rw-card${isLuar?' luar':''}" onclick="toggleRwCard(this,'${rw}')">
+      <div class="rw-card-head">
+        <span class="rw-card-label${isLuar?' luar':''}">${label}</span>
+        <span class="rw-card-wp">${items.length} WP</span>
+      </div>
+      <div class="rw-card-rp">${rp(total)}</div>
+      <div class="rw-card-bar-bg"><div class="rw-card-bar" style="width:${pct}%"></div></div>
+      <div class="rt-accordion" id="rta-${rw}">${rtRows}</div>
+    </div>`;
+  }).join('');
+}
+
+function toggleRwCard(card,rw){
+  const acc=document.getElementById('rta-'+rw);
+  const isOpen=acc.classList.contains('open');
+  // close all
+  document.querySelectorAll('.rt-accordion').forEach(a=>a.classList.remove('open'));
+  if(!isOpen) acc.classList.add('open');
+}
+
+/* ---- DUSUN TABS ---- */
+function initDusunCards(){
+  for(let d=0;d<=3;d++){
+    const sub=subsetForDusun(d);
+    const total=sub.reduce((s,x)=>s+x.total,0);
+    document.getElementById('dn-'+d).textContent=sub.length.toLocaleString('id-ID')+' WP';
+    document.getElementById('dr-'+d).textContent=rp(total);
+  }
+  // Luar
+  const subLuar=PBB_DATA.filter(x=>x.rw==='luar');
+  const totLuar=subLuar.reduce((s,x)=>s+x.total,0);
+  document.getElementById('dn-luar').textContent=subLuar.length.toLocaleString('id-ID')+' WP';
+  document.getElementById('dr-luar').textContent=rp(totLuar);
+}
+
+function setDusun(d){
+  activeDusun=d;
+  // update card UI
+  for(let i=0;i<=3;i++) document.getElementById('dc-'+i).classList.toggle('on',i===d);
+  document.getElementById('dc-luar').classList.toggle('on',d==='luar');
+  document.getElementById('f-dusun').value=(d===0||d==='luar')?'':String(d);
+
+  // animate hero big numbers
+  const sub=subsetForDusun(d);
+  const tot=sub.reduce((s,x)=>s+x.total,0);
+  counter(document.getElementById('h-wp'),sub.length,false,800);
+  counter(document.getElementById('h-rp'),tot,true,1000);
+
+  // update sub labels
+  const dName=d===0?'desa':d==='luar'?'Luar Desa':['','Dusun I','Dusun II','Dusun III'][d];
+  document.getElementById('h-wp-sub').textContent=d===0?'Belum melunasi PBB':'Belum lunas di '+dName;
+  document.getElementById('h-rp-sub').textContent=d===0?'Seluruh data desa':'Total tunggakan '+dName;
+
+  // reset RW select
+  populateRwSel(d);
+  document.getElementById('f-rw').value='';
+  document.getElementById('f-rt').innerHTML='<option value="">Semua RT</option>';
+
+  renderAnalytics(d);
+  applyFilter();
+}
+
+function onDusunSel(){
+  const v=document.getElementById('f-dusun').value;
+  setDusun(v?+v:0);
+}
+
+
+function populateRwSel(d){
+  const sel=document.getElementById('f-rw');
+  sel.innerHTML='<option value="">Semua RW</option>';
+  let rwList;
+  if(d===0) rwList=['1','2','3','4','5','6','7','luar'];
+  else if(d==='luar') rwList=['luar'];
+  else rwList=[...DUSUN_RW[d]];
+  rwList.forEach(r=>{
+    const o=document.createElement('option');
+    o.value=r;o.textContent=r==='luar'?'Luar Desa':'RW '+r;
+    sel.appendChild(o);
+  });
+}
+
+function onRwSel(){
+  updateRtSel();
+  applyFilter();
+}
+function updateRtSel(){
+  const rw=document.getElementById('f-rw').value;
+  const sel=document.getElementById('f-rt');
+  sel.innerHTML='<option value="">Semua RT</option>';
+  if(!rw) return;
+  const rtSet=[...new Set(PBB_DATA.filter(d=>d.rw===rw).map(d=>d.rt))]
+    .sort((a,b)=>{if(a==='luar')return 1;if(b==='luar')return-1;return+a-+b});
+  rtSet.forEach(r=>{
+    const o=document.createElement('option');
+    o.value=r;o.textContent=r==='luar'?'Luar':('RT '+r);
+    sel.appendChild(o);
+  });
+}
+
+/* ---- FILTER ---- */
+function applyFilter(){
+  const cn=document.getElementById('f-nama').value.toLowerCase();
+  const cs=document.getElementById('f-nop').value.toLowerCase();
+  const rw=document.getElementById('f-rw').value;
+  const rt=document.getElementById('f-rt').value;
+  const th=document.getElementById('f-tahun').value;
+
+  filtered=PBB_DATA.filter(d=>{
+    if(cn&&!d.nama.toLowerCase().includes(cn)) return false;
+    if(cs&&!d.nop.toLowerCase().includes(cs)) return false;
+    if(activeDusun&&activeDusun!==0){if(activeDusun==='luar'){if(d.rw!=='luar') return false;}else{if(getDusun(d.rw)!==activeDusun) return false;}} 
+    if(rw&&d.rw!==rw) return false;
+    if(rt&&d.rt!==rt) return false;
+    if(th&&!d.tunggakan[th]) return false;
+    return true;
+  });
+
+  document.getElementById('h-fil').textContent=filtered.length.toLocaleString('id-ID');
+
+  // active tags
+  const bar=document.getElementById('f-active');
+  const tags=[];
+  if(activeDusun) tags.push([activeDusun==='luar'?'Luar Desa':'Dusun '+['','I','II','III'][activeDusun],()=>setDusun(0)]);
+  if(rw) tags.push([rw==='luar'?'Luar Desa':'RW '+rw,()=>{document.getElementById('f-rw').value='';updateRtSel();applyFilter()}]);
+  if(rt) tags.push([rt==='luar'?'Luar':'RT '+rt,()=>{document.getElementById('f-rt').value='';applyFilter()}]);
+  if(th) tags.push(['Thn '+th,()=>{document.getElementById('f-tahun').value='';applyFilter()}]);
+  if(tags.length){
+    bar.style.display='flex';
+    bar.innerHTML='<span>Filter:</span>'+tags.map(([t],i)=>`<span class="ftag" onclick="clearTag(${i})">${t} ×</span>`).join('');
+    bar._clearFns=tags.map(([,fn])=>fn);
+  } else {
+    bar.style.display='none';
+  }
+
+  page=1;sel.clear();renderTable();updateSel();
+}
+function clearTag(i){document.getElementById('f-active')._clearFns[i]();}
+
+/* ---- TABLE ---- */
+function renderTable(){
+  const tbody=document.getElementById('tbody');
+  const empty=document.getElementById('empty');
+  if(!filtered.length){tbody.innerHTML='';empty.style.display='block';document.getElementById('pg').innerHTML='';return;}
+  empty.style.display='none';
+  const s=(page-1)*PH;
+  tbody.innerHTML=filtered.slice(s,s+PH).map((d,i)=>{
+    const idx=s+i,on=sel.has(idx);
+    const chips=Object.entries(d.tunggakan).map(([t,v])=>`<span class="ytag">${t}: ${rp(v)}</span>`).join('');
+    const isLuar=d.rw==='luar';
+    const rtLabel=isLuar?'Luar':'RT '+d.rt+'/RW '+d.rw;
+    const dsLabel=getDLabel(d.rw);
+    return `<tr class="${on?'on':''}" onclick="toggleSel(${idx})">
+      <td><input type="checkbox" ${on?'checked':''} onclick="event.stopPropagation();toggleSel(${idx})"></td>
+      <td class="nm">${d.nama}</td>
+      <td class="nop">${d.nop}</td>
+      <td><span class="bdg ${isLuar?'bdg-luar':'bdg-rt'}">${rtLabel}</span></td>
+      <td><span class="bdg ${isLuar?'bdg-luar':'bdg-ds'}">${dsLabel}</span></td>
+      <td><div class="yrtags">${chips}</div></td>
+      <td class="tot">${rp(d.total)}</td>
+      <td><div class="abtns">
+        <button class="btn-pb" onclick="event.stopPropagation();openModal('pb',${idx})">Pemberitahuan</button>
+        <button class="btn-und" onclick="event.stopPropagation();openModal('und',${idx})">Undangan</button>
+      </div></td>
+    </tr>`;
+  }).join('');
+  renderPg();
+}
+
+function renderPg(){
+  const tot=Math.ceil(filtered.length/PH);
+  const el=document.getElementById('pg');
+  if(tot<=1){el.innerHTML='';return;}
+  const pages=[];
+  for(let i=1;i<=tot;i++){
+    if(i===1||i===tot||Math.abs(i-page)<=2) pages.push(i);
+    else if(pages[pages.length-1]!=='...') pages.push('...');
+  }
+  el.innerHTML=`<button onclick="goP(${page-1})" ${page===1?'disabled':''}>← Prev</button>`
+    +pages.map(p=>p==='...'?'<span style="padding:0 4px">…</span>'
+      :`<button class="${p===page?'on':''}" onclick="goP(${p})">${p}</button>`).join('')
+    +`<button onclick="goP(${page+1})" ${page===tot?'disabled':''}>Next →</button>`
+    +`<span class="pg-info">Hal ${page}/${tot} · ${filtered.length} data</span>`;
+}
+
+function goP(p){
+  const tot=Math.ceil(filtered.length/PH);
+  if(p<1||p>tot) return;
+  page=p;renderTable();
+  window.scrollTo({top:700,behavior:'smooth'});
+}
+
+function toggleSel(idx){sel.has(idx)?sel.delete(idx):sel.add(idx);updateSel();renderTable();}
+function pilihSemua(cb){if(cb.checked)filtered.forEach((_,i)=>sel.add(i));else sel.clear();updateSel();renderTable();}
+function updateSel(){
+  document.getElementById('sel-badge').textContent=sel.size+' terpilih';
+  document.getElementById('cb-all').checked=sel.size===filtered.length&&filtered.length>0;
+}
+
+/* ---- MODAL ---- */
+function openModal(tipe,idx){
+  cur=filtered[idx];batch=[];
+  const chips=Object.entries(cur.tunggakan).map(([t,v])=>`<span class="chip">${t}: ${rp(v)}</span>`).join('');
+  const info=`<strong>${cur.nama}</strong><br>
+    <span style="font-size:.78rem;color:#555;">NOP: ${cur.nop} · ${cur.rw==='luar'?'Luar Desa':'RT '+cur.rt+'/RW '+cur.rw} · ${getDLabel(cur.rw)}</span>
+    <div class="chips">${chips}<span class="chip tot">Total: ${rp(cur.total)}</span></div>`;
+  if(tipe==='pb'){
+    document.getElementById('iw-pb').innerHTML=info;
+    document.getElementById('pb-al').value=alamatAuto(cur);
+    document.getElementById('ov-pb').classList.add('on');
+    rerender('pb');
+  } else {
+    document.getElementById('iw-und').innerHTML=info;
+    document.getElementById('und-al').value=alamatAuto(cur);
+    document.getElementById('ov-und').classList.add('on');
+    rerender('und');
+  }
+}
+function closeModal(t){document.getElementById('ov-'+t).classList.remove('on');}
+document.querySelectorAll('.overlay').forEach(el=>{
+  el.addEventListener('click',e=>{if(e.target===el)closeModal(el.id.replace('ov-',''));});
+});
+
+/* ---- PREVIEW ---- */
+function rerender(t){
+  const d=cur;if(!d) return;
+  if(t==='pb'){
+    document.getElementById('prev-pb').innerHTML=
+      htmlPB(d,document.getElementById('pb-no').value,document.getElementById('pb-al').value||alamatAuto(d));
+  } else {
+    document.getElementById('prev-und').innerHTML=
+      htmlUND(d,document.getElementById('und-no').value,
+        document.getElementById('und-al').value||alamatAuto(d),
+        document.getElementById('und-hr').value||'..............................',
+        document.getElementById('und-wk').value||'09.00 WIB');
+  }
+}
+
+function htmlPB(d,no,al){
+  const nr=nf(no);
+  const tl=Object.entries(d.tunggakan).map(([t,v])=>`Tahun ${t} sebesar ${rp(v)}`).join(', ');
+  return `<div class="kop"><div class="kop-n">Kepala Desa Kasomalang Kulon</div>
+    <div class="kop-s">Kecamatan Kasomalang</div><div class="kop-s">Kabupaten Subang</div></div>
+  <div class="judul">Surat Pemberitahuan</div>
+  <div class="nomor">Nomor : 400/${nr}/Pemdes-KK/2026</div>
+  <table class="tid">
+    <tr><td>Nama Wajib Pajak</td><td>:</td><td>${d.nama}</td></tr>
+    <tr><td>Nomor SPPT</td><td>:</td><td>${d.nop}</td></tr>
+    <tr><td>RT/RW</td><td>:</td><td>${d.rw==='luar'?'—':('RT '+d.rt+'/RW '+d.rw)}</td></tr>
+    <tr><td>Alamat</td><td>:</td><td>${al}</td></tr>
+  </table>
+  <p class="par">Dengan hormat,</p>
+  <p class="par">Berdasarkan data Pajak Bumi dan Bangunan Perdesaan dan Perkotaan (PBB-P2) Desa Kasomalang Kulon Tahun 2025, sampai dengan surat ini diterbitkan, pembayaran PBB-P2 atas objek pajak atas nama Saudara belum tercatat lunas.</p>
+  <p class="par">Adapun jumlah PBB-P2 yang masih harus dibayarkan adalah sebesar</p>
+  <div class="nom">${rp(d.total)}</div>
+  <div class="nomk">(Terdiri dari: ${tl})</div>
+  <p class="par">Sehubungan dengan hal tersebut, kami mengimbau kepada Saudara untuk segera melakukan pelunasan PBB-P2 melalui petugas pemungut PBB Desa Kasomalang Kulon atau tempat pembayaran yang telah ditetapkan.</p>
+  <p class="par">Partisipasi dan kepatuhan masyarakat sangat diperlukan guna mendukung penyelenggaraan pemerintahan dan pembangunan Desa Kasomalang Kulon.</p>
+  <p class="par">Demikian surat pemberitahuan ini kami sampaikan. Atas perhatian dan kerja sama Saudara, kami ucapkan terima kasih.</p>
+  <div class="ttd"><div class="ttd-box">
+    <div>Kasomalang Kulon, ${tgl()}</div>
+    <div class="ttd-jab">Kepala Desa Kasomalang Kulon,</div>
+    <div class="ttd-sp"></div>
+    <div class="ttd-nm">H.AMIRUDIN,S.Pd.I</div>
+  </div></div>`;
+}
+
+function htmlUND(d,no,al,hr,wk){
+  const nr=nf(no);
+  return `<div class="kop"><div class="kop-n">Kepala Desa Kasomalang Kulon</div>
+    <div class="kop-s">Kecamatan Kasomalang</div><div class="kop-s">Kabupaten Subang</div></div>
+  <div class="judul">Surat Undangan</div>
+  <div class="nomor">Nomor : 005/${nr}/Pemdes-KK/2026</div>
+  <table class="tid">
+    <tr><td>Nama Wajib Pajak</td><td>:</td><td>${d.nama}</td></tr>
+    <tr><td>Nomor SPPT</td><td>:</td><td>${d.nop}</td></tr>
+    <tr><td>RT/RW</td><td>:</td><td>${d.rw==='luar'?'—':('RT '+d.rt+'/RW '+d.rw)}</td></tr>
+    <tr><td>Alamat</td><td>:</td><td>${al}</td></tr>
+  </table>
+  <p class="par">Dengan hormat,</p>
+  <p class="par">Sehubungan dengan masih adanya kewajiban pembayaran Pajak Bumi dan Bangunan Perdesaan dan Perkotaan (PBB-P2) Tahun 2025 atas nama Saudara, bersama ini kami mengundang Saudara untuk hadir pada:</p>
+  <table class="tid" style="margin-bottom:13px">
+    <tr><td>Hari/Tanggal</td><td>:</td><td>${hr}</td></tr>
+    <tr><td>Waktu</td><td>:</td><td>${wk}</td></tr>
+    <tr><td>Tempat</td><td>:</td><td>Kantor Desa Kasomalang Kulon</td></tr>
+    <tr><td>Acara</td><td>:</td><td>Klarifikasi dan Penyelesaian Pembayaran PBB-P2 Tahun 2025</td></tr>
+  </table>
+  <p class="par">Demikian surat undangan ini kami sampaikan. Mengingat pentingnya acara tersebut, kami mengharapkan kehadiran Saudara tepat pada waktu yang telah ditentukan. Atas perhatian dan kehadiran Saudara, kami ucapkan terima kasih.</p>
+  <div class="ttd"><div class="ttd-box">
+    <div>Kasomalang Kulon, ${tgl()}</div>
+    <div class="ttd-jab">Kepala Desa Kasomalang Kulon,</div>
+    <div class="ttd-sp"></div>
+    <div class="ttd-nm">H.AMIRUDIN,S.Pd.I</div>
+  </div></div>`;
+}
+
+/* ---- PRINT ---- */
+function makeSC(tipe,d,no,extras){
+  const inner=tipe==='pb'?htmlPB(d,no,extras.al):htmlUND(d,no,extras.al,extras.hr,extras.wk);
+  const div=document.createElement('div');
+  div.className='sc';div.innerHTML=inner;return div;
+}
+function doprint(t){
+  const pa=document.getElementById('pa');pa.innerHTML='';
+  const data=batch.length?batch:[cur];
+  const no0=parseInt(document.getElementById(t+'-no').value||'1');
+  const al=document.getElementById(t+'-al').value;
+  const extras={al};
+  if(t==='und'){
+    extras.hr=document.getElementById('und-hr').value||'..............................';
+    extras.wk=document.getElementById('und-wk').value||'09.00 WIB';
+  }
+  data.forEach((d,i)=>pa.appendChild(makeSC(t,d,String(no0+i),
+    batch.length?{...extras,al:alamatAuto(d)}:extras)));
+  closeModal(t);
+  setTimeout(()=>window.print(),150);
+}
+function cetakBatch(t){
+  if(!sel.size){alert('Pilih setidaknya satu wajib pajak.');return;}
+  batch=[...sel].map(i=>filtered[i]);cur=batch[0];
+  const tipe=t==='pb'?'pb':'und';
+  const jumlah=batch.length;
+  const info=`<strong>${jumlah} surat ${tipe==='pb'?'pemberitahuan':'undangan'}</strong> akan dicetak.<br>
+    <span style="font-size:.77rem;color:#555">Nomor surat dimulai dari nomor yang diisi${tipe==='und'?'. Hari/tanggal berlaku untuk semua':''}</span>`;
+  document.getElementById('iw-'+tipe).innerHTML=info;
+  document.getElementById(tipe+'-al').value=alamatAuto(cur);
+  if(tipe==='pb')
+    document.getElementById('prev-pb').innerHTML=htmlPB(cur,document.getElementById('pb-no').value,alamatAuto(cur));
+  else
+    document.getElementById('prev-und').innerHTML=htmlUND(cur,document.getElementById('und-no').value,alamatAuto(cur),document.getElementById('und-hr').value||'..............................',document.getElementById('und-wk').value);
+  document.getElementById('ov-'+tipe).classList.add('on');
+}
+
+/* ---- INIT ---- */
+function init(){
+  const tot=PBB_DATA.reduce((s,d)=>s+d.total,0);
+  setTimeout(()=>{
+    counter(document.getElementById('h-wp'),PBB_DATA.length,false,1400);
+    counter(document.getElementById('h-rp'),tot,true,1800);
+    counter(document.getElementById('h-fil'),PBB_DATA.length,false,1000);
+  },150);
+  initDusunCards();
+  populateRwSel(0);
+  renderAnalytics(0);
+  applyFilter();
+}
+window.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>
