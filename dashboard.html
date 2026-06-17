@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="id">
+ <head><script src="/_sdk/telemetry_sdk.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desa Kasomalang Kulon</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'DM Sans', sans-serif; overflow: hidden; }
+    body.loaded { overflow: auto; }
+    #splash {
+      position: fixed; inset: 0; z-index: 9999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #064e3b 0%, #0f766e 100%);
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    #splash.hide { opacity: 0; visibility: hidden; }
+    .logo-pulse { animation: pulse-grow 1.2s ease-in-out infinite alternate; }
+    @keyframes pulse-grow { 0% { transform: scale(0.9); opacity: 0.7; } 100% { transform: scale(1.1); opacity: 1; } }
+    .progress-bar { width: 200px; height: 3px; background: rgba(254,243,226,0.2); border-radius: 4px; overflow: hidden; margin-top: 24px; }
+    .progress-fill { height: 100%; width: 0; background: #d4af37; border-radius: 4px; animation: fill-bar 2.2s ease-in-out forwards; }
+    @keyframes fill-bar { to { width: 100%; } }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .hero-text { opacity: 0; transform: translateY(40px); }
+    .hero-text.animate { animation: slideUp 0.8s ease forwards; }
+    @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #d4af37; transition: width 0.3s; }
+    .nav-link:hover::after { width: 100%; }
+    .gallery-item img { transition: transform 0.4s ease; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .stat-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .stat-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(6,78,59,0.15); }
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(6,78,59,0.2), transparent); }
+    .playfair { font-family: 'Playfair Display', serif; }
+  </style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/resizing_sdk.js" type="text/javascript"></script>
+ </head>
+ <body data-template-id="__page-root" class="w-full min-h-screen">
+  <div id="splash">
+   <div class="logo-pulse w-20 h-20 rounded-full bg-emerald-700 flex items-center justify-center shadow-lg shadow-emerald-900/60"><i data-lucide="trees" class="w-10 h-10 text-amber-100"></i>
+   </div>
+   <p data-template-id="splash-text" class="canva-text mt-6 font-medium tracking-wide"></p>
+   <div class="progress-bar">
+    <div class="progress-fill"></div>
+   </div>
+  </div>
+  <nav id="main-nav" data-template-id="navbar" class="canva-header fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-emerald-900/20 transition-all duration-300">
+   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+     <div class="w-10 h-10 rounded-full bg-emerald-700 flex items-center justify-center"><i data-lucide="trees" class="w-5 h-5 text-amber-100"></i>
+     </div><span data-template-id="nav-title" class="canva-text font-bold text-lg"></span>
+    </div>
+    <div class="hidden md:flex items-center gap-7">
+     <a href="#profil" data-template-id="nav-profil" class="canva-link nav-link text-sm font-medium text-amber-50/90"></a> <a href="#visi-misi" data-template-id="nav-visi" class="canva-link nav-link text-sm font-medium text-amber-50/90"></a> <a href="#agenda" data-template-id="nav-agenda" class="canva-link nav-link text-sm font-medium text-amber-50/90"></a> <a href="#berita" data-template-id="nav-berita" class="canva-link nav-link text-sm font-medium text-amber-50/90"></a> <a href="#lokasi" data-template-id="nav-lokasi" class="canva-link nav-link text-sm font-medium text-amber-50/90"></a> <a href="#galeri" data-template-id="nav-galeri" class="canva-link nav-link text-sm font-medium text-amber-50/90"></a>
+    </div><button id="mobile-menu-btn" class="md:hidden text-amber-50"><i data-lucide="menu" class="w-6 h-6"></i></button>
+   </div>
+   <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3">
+    <a href="#profil" class="text-amber-50/90 text-sm">Profil</a> <a href="#visi-misi" class="text-amber-50/90 text-sm">Visi &amp; Misi</a> <a href="#agenda" class="text-amber-50/90 text-sm">Agenda</a> <a href="#berita" class="text-amber-50/90 text-sm">Berita</a> <a href="#lokasi" class="text-amber-50/90 text-sm">Lokasi</a> <a href="#galeri" class="text-amber-50/90 text-sm">Galeri</a>
+   </div>
+  </nav>
+  <header class="relative w-full" style="height: calc(100 * min(var(--vh, 1vh), 1vh));">
+   <img data-template-id="hero-image" class="canva-image absolute inset-0 w-full h-full object-cover" loading="eager">
+   <div class="absolute inset-0" style="background: radial-gradient(ellipse 200% 150% at 50% 30%, rgba(6, 78, 59, 0.35) 0%, rgba(15, 23, 42, 0.55) 35%, rgba(15, 118, 110, 0.45) 60%, rgba(4, 26, 29, 0.7) 100%);"></div>
+   <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+    <h1 data-template-id="hero-title" class="canva-text hero-text playfair font-bold" style="animation-delay: 0.3s;"></h1>
+    <p data-template-id="hero-subtitle" class="canva-text hero-text mt-4 max-w-2xl" style="animation-delay: 0.6s;"></p>
+    <div class="hero-text mt-8 flex gap-4 flex-wrap justify-center" style="animation-delay: 0.9s;">
+     <a href="#profil" class="px-6 py-3 bg-emerald-700 text-amber-50 rounded-lg font-medium hover:bg-emerald-800 transition shadow-lg shadow-emerald-900/40">Jelajahi Desa</a> <a href="#agenda" class="px-6 py-3 border border-amber-400/50 text-amber-50 rounded-lg font-medium hover:bg-emerald-900/30 transition">Agenda Kegiatan</a>
+    </div>
+   </div>
+  </header>
+  <section id="info" class="py-20 px-6">
+   <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div data-template-id="stat-1" class="canva-card stat-card reveal rounded-2xl p-6 text-center border border-emerald-200/40">
+     <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100/50 flex items-center justify-center mb-4"><i data-lucide="users" class="w-6 h-6 text-emerald-700"></i>
+     </div>
+     <p data-template-id="stat-1-value" class="canva-text font-bold"></p>
+     <p data-template-id="stat-1-label" class="canva-text mt-1 text-sm"></p>
+    </div>
+    <div data-template-id="stat-2" class="canva-card stat-card reveal rounded-2xl p-6 text-center border border-emerald-200/40">
+     <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100/50 flex items-center justify-center mb-4"><i data-lucide="map-pin" class="w-6 h-6 text-emerald-700"></i>
+     </div>
+     <p data-template-id="stat-2-value" class="canva-text font-bold"></p>
+     <p data-template-id="stat-2-label" class="canva-text mt-1 text-sm"></p>
+    </div>
+    <div data-template-id="stat-3" class="canva-card stat-card reveal rounded-2xl p-6 text-center border border-emerald-200/40">
+     <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100/50 flex items-center justify-center mb-4"><i data-lucide="home" class="w-6 h-6 text-emerald-700"></i>
+     </div>
+     <p data-template-id="stat-3-value" class="canva-text font-bold"></p>
+     <p data-template-id="stat-3-label" class="canva-text mt-1 text-sm"></p>
+    </div>
+   </div>
+  </section>
+  <div class="section-divider max-w-4xl mx-auto"></div>
+  <section id="profil" class="py-20 px-6">
+   <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
+    <div class="md:col-span-2 reveal flex justify-center">
+     <div class="w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border-4 border-green-300/40 shadow-xl shadow-green-900/20">
+      <img data-template-id="kades-image" class="canva-image w-full h-full object-cover" loading="lazy">
+     </div>
+    </div>
+    <div class="md:col-span-3 reveal">
+     <h2 data-template-id="sambutan-heading" class="canva-text playfair font-bold mb-4"></h2>
+     <p data-template-id="sambutan-text" class="canva-text leading-relaxed"></p>
+     <p data-template-id="kades-name" class="canva-text mt-6 font-bold"></p>
+     <p data-template-id="kades-title" class="canva-text text-sm"></p>
+    </div>
+   </div>
+  </section>
+  <div class="section-divider max-w-4xl mx-auto"></div>
+  <section id="visi-misi" class="py-20 px-6">
+   <div class="max-w-4xl mx-auto text-center">
+    <h2 data-template-id="visi-heading" class="canva-text playfair font-bold mb-8 reveal"></h2>
+    <div data-template-id="visi-card" class="canva-card reveal rounded-2xl p-8 border border-emerald-200/40 mb-10">
+     <h3 data-template-id="visi-label" class="canva-text font-bold mb-3"></h3>
+     <p data-template-id="visi-text" class="canva-text leading-relaxed"></p>
+    </div>
+    <div data-template-id="misi-card" class="canva-card reveal rounded-2xl p-8 border border-emerald-200/40 text-left">
+     <h3 data-template-id="misi-label" class="canva-text font-bold mb-4 text-center"></h3>
+     <p data-template-id="misi-1" class="canva-text mb-2"></p>
+     <p data-template-id="misi-2" class="canva-text mb-2"></p>
+     <p data-template-id="misi-3" class="canva-text mb-2"></p>
+     <p data-template-id="misi-4" class="canva-text mb-2"></p>
+     <p data-template-id="misi-5" class="canva-text"></p>
+    </div>
+   </div>
+  </section>
+  <div class="section-divider max-w-4xl mx-auto"></div>
+  <section id="agenda" class="py-20 px-6">
+   <div class="max-w-5xl mx-auto">
+    <h2 data-template-id="agenda-heading" class="canva-text playfair font-bold text-center mb-12 reveal"></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+     <div data-template-id="agenda-1" class="canva-card reveal rounded-2xl p-6 border border-emerald-200/40 flex gap-4">
+      <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-emerald-100/50 flex items-center justify-center"><i data-lucide="calendar" class="w-6 h-6 text-emerald-700"></i>
+      </div>
+      <div>
+       <p data-template-id="agenda-1-date" class="canva-text text-xs font-medium"></p>
+       <h3 data-template-id="agenda-1-title" class="canva-text font-bold mt-1"></h3>
+       <p data-template-id="agenda-1-desc" class="canva-text text-sm mt-1"></p>
+      </div>
+     </div>
+     <div data-template-id="agenda-2" class="canva-card reveal rounded-2xl p-6 border border-emerald-200/40 flex gap-4">
+      <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-emerald-100/50 flex items-center justify-center"><i data-lucide="calendar" class="w-6 h-6 text-emerald-700"></i>
+      </div>
+      <div>
+       <p data-template-id="agenda-2-date" class="canva-text text-xs font-medium"></p>
+       <h3 data-template-id="agenda-2-title" class="canva-text font-bold mt-1"></h3>
+       <p data-template-id="agenda-2-desc" class="canva-text text-sm mt-1"></p>
+      </div>
+     </div>
+     <div data-template-id="agenda-3" class="canva-card reveal rounded-2xl p-6 border border-emerald-200/40 flex gap-4">
+      <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-emerald-100/50 flex items-center justify-center"><i data-lucide="calendar" class="w-6 h-6 text-emerald-700"></i>
+      </div>
+      <div>
+       <p data-template-id="agenda-3-date" class="canva-text text-xs font-medium"></p>
+       <h3 data-template-id="agenda-3-title" class="canva-text font-bold mt-1"></h3>
+       <p data-template-id="agenda-3-desc" class="canva-text text-sm mt-1"></p>
+      </div>
+     </div>
+     <div data-template-id="agenda-4" class="canva-card reveal rounded-2xl p-6 border border-emerald-200/40 flex gap-4">
+      <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-emerald-100/50 flex items-center justify-center"><i data-lucide="calendar" class="w-6 h-6 text-emerald-700"></i>
+      </div>
+      <div>
+       <p data-template-id="agenda-4-date" class="canva-text text-xs font-medium"></p>
+       <h3 data-template-id="agenda-4-title" class="canva-text font-bold mt-1"></h3>
+       <p data-template-id="agenda-4-desc" class="canva-text text-sm mt-1"></p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <div class="section-divider max-w-4xl mx-auto"></div>
+  <section id="berita" class="py-20 px-6">
+   <div class="max-w-6xl mx-auto">
+    <h2 data-template-id="news-heading" class="canva-text playfair font-bold text-center mb-12 reveal"></h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+     <article class="reveal rounded-2xl overflow-hidden border border-emerald-300/30" style="transition-delay:0.1s;">
+      <div class="h-48 overflow-hidden"><img data-template-id="news-1-img" class="canva-image w-full h-full object-cover" loading="lazy">
+      </div>
+      <div class="p-5">
+       <p data-template-id="news-1-date" class="canva-text text-xs mb-2"></p>
+       <h3 data-template-id="news-1-title" class="canva-text font-bold"></h3>
+       <p data-template-id="news-1-desc" class="canva-text mt-2 text-sm"></p>
+      </div>
+     </article>
+     <article class="reveal rounded-2xl overflow-hidden border border-emerald-300/30" style="transition-delay:0.2s;">
+      <div class="h-48 overflow-hidden"><img data-template-id="news-2-img" class="canva-image w-full h-full object-cover" loading="lazy">
+      </div>
+      <div class="p-5">
+       <p data-template-id="news-2-date" class="canva-text text-xs mb-2"></p>
+       <h3 data-template-id="news-2-title" class="canva-text font-bold"></h3>
+       <p data-template-id="news-2-desc" class="canva-text mt-2 text-sm"></p>
+      </div>
+     </article>
+     <article class="reveal rounded-2xl overflow-hidden border border-emerald-300/30" style="transition-delay:0.3s;">
+      <div class="h-48 overflow-hidden"><img data-template-id="news-3-img" class="canva-image w-full h-full object-cover" loading="lazy">
+      </div>
+      <div class="p-5">
+       <p data-template-id="news-3-date" class="canva-text text-xs mb-2"></p>
+       <h3 data-template-id="news-3-title" class="canva-text font-bold"></h3>
+       <p data-template-id="news-3-desc" class="canva-text mt-2 text-sm"></p>
+      </div>
+     </article>
+    </div>
+   </div>
+  </section>
+  <div class="section-divider max-w-4xl mx-auto"></div>
+  <section id="lokasi" class="py-20 px-6">
+   <div class="max-w-5xl mx-auto">
+    <h2 data-template-id="lokasi-heading" class="canva-text playfair font-bold text-center mb-6 reveal"></h2>
+    <p data-template-id="lokasi-desc" class="canva-text text-center mb-10 max-w-2xl mx-auto reveal"></p>
+    <div class="reveal rounded-2xl overflow-hidden border border-emerald-300/30 aspect-video">
+     <img data-template-id="lokasi-image" class="canva-image w-full h-full object-cover" loading="lazy">
+    </div>
+   </div>
+  </section>
+  <div class="section-divider max-w-4xl mx-auto"></div>
+  <section id="galeri" class="py-20 px-6">
+   <div class="max-w-6xl mx-auto">
+    <h2 data-template-id="gallery-heading" class="canva-text playfair font-bold text-center mb-12 reveal"></h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+     <div class="gallery-item reveal rounded-xl overflow-hidden aspect-[4/3]"><img data-template-id="gallery-1-img" class="canva-image w-full h-full object-cover" loading="lazy">
+     </div>
+     <div class="gallery-item reveal rounded-xl overflow-hidden aspect-[4/3]" style="transition-delay:0.1s;"><img data-template-id="gallery-2-img" class="canva-image w-full h-full object-cover" loading="lazy">
+     </div>
+     <div class="gallery-item reveal rounded-xl overflow-hidden aspect-[4/3]" style="transition-delay:0.2s;"><img data-template-id="gallery-3-img" class="canva-image w-full h-full object-cover" loading="lazy">
+     </div>
+     <div class="gallery-item reveal rounded-xl overflow-hidden aspect-[4/3]" style="transition-delay:0.3s;"><img data-template-id="gallery-4-img" class="canva-image w-full h-full object-cover" loading="lazy">
+     </div>
+     <div class="gallery-item reveal rounded-xl overflow-hidden aspect-[4/3]" style="transition-delay:0.4s;"><img data-template-id="gallery-5-img" class="canva-image w-full h-full object-cover" loading="lazy">
+     </div>
+     <div class="gallery-item reveal rounded-xl overflow-hidden aspect-[4/3]" style="transition-delay:0.5s;"><img data-template-id="gallery-6-img" class="canva-image w-full h-full object-cover" loading="lazy">
+     </div>
+    </div>
+   </div>
+  </section>
+  <footer data-template-id="footer-section" class="canva-footer border-t border-emerald-900/20 py-12 px-6">
+   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <div class="text-left">
+     <h4 class="font-bold text-amber-100 mb-3">Kontak</h4>
+     <p data-template-id="footer-contact" class="canva-text text-sm"></p>
+    </div>
+    <div class="text-left">
+     <h4 class="font-bold text-amber-100 mb-3">Alamat</h4>
+     <p data-template-id="footer-address" class="canva-text text-sm"></p>
+    </div>
+    <div class="text-left">
+     <h4 class="font-bold text-amber-100 mb-3">Media Sosial</h4>
+     <div class="flex gap-3"><a href="#" class="text-amber-100 hover:text-amber-300 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a> <a href="#" class="text-amber-100 hover:text-amber-300 transition"><i data-lucide="twitter" class="w-5 h-5"></i></a> <a href="#" class="text-amber-100 hover:text-amber-300 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+     </div>
+    </div>
+   </div>
+   <div class="border-t border-emerald-900/30 pt-6 text-center">
+    <p data-template-id="footer-text" class="canva-text text-sm"></p>
+   </div>
+  </footer>
+  <script src="/_sdk/editing_sdk.js"></script>
+  <script>
+  lucide.createIcons();
+  setTimeout(() => {
+    document.getElementById('splash').classList.add('hide');
+    document.body.classList.add('loaded');
+    document.querySelectorAll('.hero-text').forEach(el => el.classList.add('animate'));
+  }, 2500);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('main-nav');
+    nav.style.background = window.scrollY > 80 ? 'rgba(6, 78, 59, 0.96)' : '';
+  });
+
+  document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0d2566ac50712b0',t:'MTc4MTcwMjI3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
